@@ -1,8 +1,8 @@
 import sqlite3
 from datetime import datetime
 
-import click
-from flask import current_app, g
+import click # type: ignore
+from flask import current_app, g # type: ignore
 
 
 def get_db():

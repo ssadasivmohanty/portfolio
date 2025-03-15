@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask,render_template
+from flask import Flask,render_template # type: ignore
 
 
 def create_app(test_config=None):
