@@ -1,5 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-6">
+            <div class="my-5 pt-2">
+                <h3>Contact Us</h3>
+                <p>Feel free to use the form or drop me an email. Old-fashioned phonecalls works too.</p>
+                <p>+91 9777-616-949</p>
+                <p>sourabhasadasiv@gmail.com</p>
+                <p>Navi Mumbai, Maharastra, 400701</p>
+            </div>
+        </div>
 
+        <!-- Right Column -->
+        <div class="col-md-6">
+            <div class="my-5 p-2">
+                <form action="" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name:</label>
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <input type="text" class="form-control" id="fname" aria-describedby="name" placeholder = "First">
+                            </div>
+                            <div class="col-md">
+                                <input type="text" class="form-control" id="lname" aria-describedby="name" placeholder = "Last">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder= "example@gmail.com">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class= "mb-3">
+                        <label for="phone" class="form-label">Phone(Optional)</label>
+                        <input type="tel" class="form-control" Optional name="phone" id="phone" placeholder= "xxx-xxx-xxxx">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button class= "btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
