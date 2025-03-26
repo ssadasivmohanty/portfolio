@@ -17,22 +17,22 @@
         <!-- Right Column -->
         <div class="col-md-6">
             <div class="my-5 p-2">
-                <form action="" method="POST">
+                <form action="/contact_mail" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name:</label>
                         <div class="row g-2">
                             <div class="col-md">
-                                <input type="text" class="form-control" id="fname" aria-describedby="name" placeholder = "First">
+                                <input type="text" class="form-control" id="fname" name = 'fname' aria-describedby="name" placeholder = "First">
                             </div>
                             <div class="col-md">
-                                <input type="text" class="form-control" id="lname" aria-describedby="name" placeholder = "Last">
+                                <input type="text" class="form-control" id="lname" name = 'lname' aria-describedby="name" placeholder = "Last">
                             </div>
                         </div>
                         
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder= "example@gmail.com">
+                        <input type="email" class="form-control" id="email" name = 'email' aria-describedby="email" placeholder= "example@gmail.com">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class= "mb-3">
@@ -41,9 +41,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="3"></textarea>
+                        <textarea class="form-control" id="message" name = 'message' rows="3"></textarea>
                     </div>
-                    <button class= "btn btn-primary">Submit</button>
+                    <button class= "btn btn-primary" type = 'submit' value = 'submit'>Submit</button>
                 </form>
             </div>
         </div>

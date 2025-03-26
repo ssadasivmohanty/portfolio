@@ -1,6 +1,8 @@
 import os
+# from flask_mysql_connector import MySQL
+from flask_mysqldb import MySQL
 
-from flask import Flask,render_template # type: ignore
+from flask import Flask, render_template, request, flash, redirect, url_for # type: ignore
 
 
 def create_app(test_config=None):
@@ -10,6 +12,11 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
+    app.config['MYSQL_USER'] = 'root'
+    app.config['MYSQL_PASSWORD'] = 'root'
+    app.config['MYSQL_DB'] = 'resto-app'
+    mysql = MySQL(app)
+    
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -39,6 +46,34 @@ def create_app(test_config=None):
     @app.route('/contact')
     def contact():
         return render_template('contact.html')
+    @app.route('/contact_mail', methods=['GET', 'POST'])
+    def contact_mail():
+        if request.method == 'POST':  
+            print("Post Method")
+            try:
+                conn = mysql.connection
+                cur = conn.cursor()
+                fname = request.form['fname']
+                lname = request.form['lname']
+                email = request.form['email']
+                phone = request.form['phone']
+                message = request.form['message']
+                print(message,phone)
+                cur.execute('''insert into message values(%s, %s, %s, %s, %s) ''',(fname,lname,email,phone,message))
+                conn.commit()
+                flash('Item added', 'success')
+                # return redirect(url_for('contact'))
+                return 'Form submited'
+            except Exception as e:
+                print(e)
+                conn.rollback
+                flash('Something went wrong', 'error')
+                return 'Form submition failed'
+                # return redirect(url_for('contact'))
+            finally:
+                # conn.close()
+                pass
+
 
     from . import db
     db.init_app(app)
